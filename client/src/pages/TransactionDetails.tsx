@@ -22,13 +22,13 @@ const tabs = [
 
 // Reusable Address Badge (matching standard)
 const AddressBadge = ({ address }: { address: string }) => (
-    <div className="relative w-auto lg:w-[130px] h-[26px] bg-[#ffffff12] rounded flex items-center px-2 gap-2 hover:bg-[#ffffff20] transition-colors cursor-pointer">
+    <div className="relative w-auto lg:w-[130px] h-[26px] bg-[#eef0f3] rounded flex items-center px-2 gap-2 hover:bg-[#5b616e33] transition-colors cursor-pointer">
         <img
             className="w-4 h-4 flex-shrink-0"
             alt="hash icon"
             src="/figmaAssets/i0ftf3jcnc8mmriumot-1.svg"
         />
-        <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[10px] tracking-[0] leading-[normal] truncate uppercase">
+        <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] truncate uppercase">
             {address}
         </span>
         <img
@@ -43,9 +43,9 @@ export const TxnDetails = (): JSX.Element => {
     const [activeTab, setActiveTab] = useState("Overview");
 
     return (
-        <div className="bg-[#0e100f] w-full min-h-screen flex flex-col [font-family:'Satoshi-Regular',Helvetica]">
+        <div className="bg-white w-full min-h-screen flex flex-col [font-family:'Satoshi-Regular',Helvetica]">
             {/* Header / Nav area (Refined) */}
-            <header className="w-full bg-[#1f201e] h-auto lg:h-[255px] relative overflow-hidden pb-8 lg:pb-0">
+            <header className="w-full bg-[#0a0b0d] h-auto lg:h-[255px] relative overflow-hidden pb-8 lg:pb-0">
                 <div className="max-w-[1440px] mx-auto px-6 lg:px-[49px]">
                     {/* Top nav bar */}
                     <div className="flex flex-col lg:flex-row items-center justify-between pt-[27px] gap-6 lg:gap-0">
@@ -75,7 +75,7 @@ export const TxnDetails = (): JSX.Element => {
                         </nav>
 
                         {/* Connect Wallet button */}
-                        <button className="w-[188px] h-[45px] bg-white rounded-[108px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-black text-base tracking-[0] leading-[normal] hover:bg-gray-100 transition-colors">
+                        <button className="w-[188px] h-[45px] bg-[#0052ff] rounded-[108px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-white text-base tracking-[0] leading-[normal] hover:bg-[#578bfa] transition-colors">
                             Connect Wallet
                         </button>
                     </div>
@@ -92,7 +92,7 @@ export const TxnDetails = (): JSX.Element => {
 
                         {/* Right: Search bar */}
                         <div className="relative w-full max-w-[501px] h-12">
-                            <div className="w-full h-12 bg-[#f6f6f5] rounded-[108px] border border-solid border-[#0e100f]" />
+                            <div className="w-full h-12 bg-[#eef0f3] rounded-[108px] border border-solid border-[#0a0b0d]" />
                             <span className="absolute top-[13px] left-[34px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-black text-sm tracking-[0] leading-[normal] pointer-events-none">
                                 Search by Address, Transaction, Block, Token
                             </span>
@@ -115,8 +115,8 @@ export const TxnDetails = (): JSX.Element => {
                             key={tab.label}
                             onClick={() => setActiveTab(tab.label)}
                             className={`h-[35px] px-[22px] rounded-[10px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[13px] tracking-[0] leading-[normal] transition-colors ${activeTab === tab.label
-                                ? "bg-white text-black"
-                                : "bg-[#ffffff0f] text-white shadow-shadow"
+                                ? "bg-[#0a0b0d] text-white"
+                                : "bg-[#eef0f3] text-[#0a0b0d] hover:bg-[#5b616e33]"
                                 }`}
                         >
                             {tab.label}

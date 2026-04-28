@@ -23,15 +23,15 @@ const transactionRows = [
 export const TransactionSummarySection = (): JSX.Element => {
   return (
     <div className="w-full shadow-shadow">
-      <Card className="w-full bg-[#1f201e] border border-solid border-[#2e2e2d] rounded-2xl">
+      <Card className="w-full bg-white border border-solid border-[#5b616e33] rounded-2xl">
         <CardContent className="px-6 py-0">
           {/* Transaction Hash Row */}
           <div className="flex items-start py-[14px] gap-4">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] leading-normal w-[210px] shrink-0">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] leading-normal w-[210px] shrink-0">
               Transaction Hash:
             </span>
             <div className="flex items-center gap-2 flex-1 min-w-0">
-              <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[13px] leading-normal truncate">
+              <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] leading-normal truncate">
                 0xd65fdbbbdadd9519d98ff26c8f1fbc717809eea8c8ba30f588d58207b4491d17
               </span>
               <img
@@ -41,22 +41,22 @@ export const TransactionSummarySection = (): JSX.Element => {
               />
             </div>
           </div>
-          <Separator className="bg-[#2e2e2d]" />
+          <Separator className="bg-[#5b616e33]" />
 
           {/* Block Row */}
           <div className="flex items-start py-[14px] gap-4">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] leading-normal w-[210px] shrink-0">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] leading-normal w-[210px] shrink-0">
               Block:
             </span>
-            <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[13px] leading-normal">
+            <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] leading-normal">
               #18939775
             </span>
           </div>
-          <Separator className="bg-[#2e2e2d]" />
+          <Separator className="bg-[#5b616e33]" />
 
           {/* Status and Method Row */}
           <div className="flex items-start py-[14px] gap-4">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] leading-normal w-[210px] shrink-0">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] leading-normal w-[210px] shrink-0">
               Status and Method:
             </span>
             <div className="flex items-center gap-2">
@@ -65,24 +65,24 @@ export const TransactionSummarySection = (): JSX.Element => {
                 alt="Prgvmrmmrjoo"
                 src="/figmaAssets/prg5vm87r5mmrj57oo-1.svg"
               />
-              <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[13px] leading-normal">
+              <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] leading-normal">
                 Success
               </span>
-              <div className="relative flex items-center justify-center bg-[#ffffff12] rounded px-2 py-[1px]">
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[10px] leading-normal">
+              <div className="relative flex items-center justify-center bg-[#eef0f3] rounded px-2 py-[1px]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] leading-normal">
                   Transfer
                 </span>
               </div>
             </div>
           </div>
-          <Separator className="bg-[#2e2e2d]" />
+          <Separator className="bg-[#5b616e33]" />
 
           {/* Timestamp Row */}
           <div className="flex items-start py-[14px] gap-4">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] leading-normal w-[210px] shrink-0">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] leading-normal w-[210px] shrink-0">
               Timestamp:
             </span>
-            <span className="[font-family:'Satoshi-Bold',Helvetica] font-normal text-white text-[13px] leading-normal">
+            <span className="[font-family:'Satoshi-Bold',Helvetica] font-normal text-[#0a0b0d] text-[13px] leading-normal">
               <span className="font-bold">12 mins 50 secs ago </span>
               <span className="[font-family:'Satoshi-Regular',Helvetica] font-normal">
                 (Mar-15-2026 02:36:55 AM)

@@ -27,16 +27,16 @@ const transactionRows = [
 export const TransactionStatusSection = (): JSX.Element => {
   return (
     <div className="w-full flex justify-center shadow-shadow">
-      <Card className="w-full bg-[#1f201e] rounded-2xl border border-solid border-[#2e2e2d]">
+      <Card className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33]">
         <CardContent className="px-6 py-0">
           {transactionRows.map((row, index) => (
             <div key={index}>
               <div className="flex flex-row items-center py-[18px] gap-4">
-                <span className="w-[200px] min-w-[120px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] tracking-[0] leading-[normal]">
+                <span className="w-[200px] min-w-[120px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] tracking-[0] leading-[normal]">
                   {row.label}
                 </span>
                 <div className="flex flex-row items-center gap-2">
-                  <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[13px] tracking-[0] leading-[normal]">
+                  <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] tracking-[0] leading-[normal]">
                     {row.value}
                   </span>
                   {row.hasIcon && (
@@ -49,7 +49,7 @@ export const TransactionStatusSection = (): JSX.Element => {
                 </div>
               </div>
               {index < transactionRows.length - 1 && (
-                <Separator className="bg-[#2e2e2d]" />
+                <Separator className="bg-[#5b616e33]" />
               )}
             </div>
           ))}

@@ -50,11 +50,11 @@ const blockData = [
 export const StatisticsCardsSection = (): JSX.Element => {
   return (
     <div className="w-full h-full shadow-shadow">
-      <Card className="bg-[#1f201e] rounded-2xl border border-solid border-[#2e2e2d] overflow-hidden h-full">
+      <Card className="bg-white rounded-2xl border border-solid border-[#5b616e33] overflow-hidden h-full">
         <CardContent className="p-2.5">
 
           {/* Header bar (Same as Daily Transactions) */}
-          <div className="relative w-full h-[47px] bg-[#363735] rounded-[10px] mb-[14px] flex items-center">
+          <div className="relative w-full h-[47px] bg-[#eef0f3] rounded-[10px] mb-[14px] flex items-center">
 
             {/* Rectangle decorations */}
             <div className="absolute inset-0 flex flex-row overflow-hidden rounded-[10px]">
@@ -69,13 +69,13 @@ export const StatisticsCardsSection = (): JSX.Element => {
             </div>
 
             {/* Title */}
-            <span className="relative z-10 ml-6 [font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal] flex-1">
+            <span className="relative z-10 ml-6 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal] flex-1">
               Latest Blocks
             </span>
 
             {/* View More */}
             <div className="relative z-10 flex items-center gap-1 mr-4">
-              <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+              <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
                 View More
               </span>
               <img
@@ -93,7 +93,7 @@ export const StatisticsCardsSection = (): JSX.Element => {
             {blockData.map((block, index) => (
               <div
                 key={index}
-                className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#2e2e2d] last:border-0"
+                className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#5b616e33] last:border-0"
               >
 
                 {/* Icon + Block ID + Time */}
@@ -107,11 +107,11 @@ export const StatisticsCardsSection = (): JSX.Element => {
 
                   <div className="flex flex-col gap-0.5">
 
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                       {block.id}
                     </span>
 
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                       {block.time}
                     </span>
 
@@ -122,11 +122,11 @@ export const StatisticsCardsSection = (): JSX.Element => {
                 {/* Proposed by Validator */}
                 <div className="col-span-5 flex flex-col gap-0.5">
 
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] text-xs tracking-[0] leading-[normal]">
+                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
                     Proposed by Validator
                   </span>
 
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                     {block.validator}
                   </span>
 
@@ -135,11 +135,11 @@ export const StatisticsCardsSection = (): JSX.Element => {
                 {/* Total Txn */}
                 <div className="col-span-3 flex flex-col gap-0.5 text-right">
 
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] text-xs tracking-[0] leading-[normal]">
+                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
                     Total Txn
                   </span>
 
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                     {block.txn}
                   </span>
 

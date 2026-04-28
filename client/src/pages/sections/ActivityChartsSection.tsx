@@ -102,10 +102,10 @@ const transactions = [
 export const ActivityChartsSection = (): JSX.Element => {
   return (
     <div className="w-full h-full shadow-shadow">
-      <Card className="bg-[#1f201e] rounded-2xl border border-solid border-[#2e2e2d] w-full h-full">
+      <Card className="bg-white rounded-2xl border border-solid border-[#5b616e33] w-full h-full">
         <CardContent className="p-2.5">
           {/* Header bar (Standardized) */}
-          <div className="relative w-full h-[47px] bg-[#363735] rounded-[10px] mb-[14px] flex items-center">
+          <div className="relative w-full h-[47px] bg-[#eef0f3] rounded-[10px] mb-[14px] flex items-center">
             {/* Rectangle decorations */}
             <div className="absolute inset-0 flex flex-row overflow-hidden rounded-[10px]">
               {rectangleDecorations.map((_, index) => (
@@ -119,13 +119,13 @@ export const ActivityChartsSection = (): JSX.Element => {
             </div>
 
             {/* Title */}
-            <span className="relative z-10 ml-6 [font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal] flex-1">
+            <span className="relative z-10 ml-6 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal] flex-1">
               Daily Transactions
             </span>
 
             {/* View More link */}
             <div className="relative z-10 flex items-center gap-1 mr-4">
-              <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+              <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
                 View More
               </span>
               <img
@@ -146,14 +146,14 @@ export const ActivityChartsSection = (): JSX.Element => {
                     <img className="w-10 h-10 shrink-0" alt="Vec" src={tx.icon} />
                     <div className="flex flex-col gap-0.5">
                       <a
-                        className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal] underline truncate max-w-[120px]"
+                        className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate max-w-[120px]"
                         href={tx.txUrl}
                         rel="noopener noreferrer"
                         target="_blank"
                       >
                         {tx.txHash}
                       </a>
-                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                         {tx.time}
                       </span>
                     </div>
@@ -162,11 +162,11 @@ export const ActivityChartsSection = (): JSX.Element => {
                   {/* From / To */}
                   <div className="col-span-12 md:col-span-5 flex flex-col gap-1">
                     <div className="flex items-center gap-2">
-                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] text-xs tracking-[0] leading-[normal] w-[35px]">
+                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal] w-[35px]">
                         From
                       </span>
                       <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                        <div className="w-5 h-5 flex-shrink-0 bg-[#2a2b29] rounded-full overflow-hidden">
+                        <div className="w-5 h-5 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
                           <img
                             className="w-full h-full object-cover"
                             alt="Avatar"
@@ -174,7 +174,7 @@ export const ActivityChartsSection = (): JSX.Element => {
                           />
                         </div>
                         <a
-                          className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal] underline truncate"
+                          className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate"
                           href={tx.fromUrl}
                           rel="noopener noreferrer"
                           target="_blank"
@@ -184,11 +184,11 @@ export const ActivityChartsSection = (): JSX.Element => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] text-xs tracking-[0] leading-[normal] w-[35px]">
+                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal] w-[35px]">
                         To
                       </span>
                       <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                        <div className="w-5 h-5 flex-shrink-0 bg-[#2a2b29] rounded-full overflow-hidden">
+                        <div className="w-5 h-5 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
                           <img
                             className="w-full h-full object-cover"
                             alt="Avatar"
@@ -196,7 +196,7 @@ export const ActivityChartsSection = (): JSX.Element => {
                           />
                         </div>
                         <a
-                          className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal] underline truncate"
+                          className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate"
                           href={tx.toUrl}
                           rel="noopener noreferrer"
                           target="_blank"
@@ -209,10 +209,10 @@ export const ActivityChartsSection = (): JSX.Element => {
 
                   {/* Amount */}
                   <div className="col-span-3 flex flex-col gap-0.5 text-right">
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] text-xs tracking-[0] leading-[normal]">
+                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
                       Amount
                     </span>
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                       {tx.amount}
                     </span>
                   </div>
@@ -220,7 +220,7 @@ export const ActivityChartsSection = (): JSX.Element => {
 
                 {/* Separator between rows, not after last */}
                 {index < transactions.length - 1 && (
-                  <Separator className="bg-[#2e2e2d]" />
+                  <Separator className="bg-[#5b616e33]" />
                 )}
               </div>
             ))}

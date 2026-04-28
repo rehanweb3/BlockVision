@@ -69,10 +69,10 @@ export const SummaryStatsSection = (): JSX.Element => {
       {statCards.map((card, index) => (
         <div key={index} className="w-full h-[227px] relative">
           {/* Card background */}
-          <div className="absolute inset-0 bg-[#1f201e] rounded-2xl border border-solid border-[#4c4c4c] shadow-[0px_0px_2px_#00000026,0px_2px_5px_#0000000d,0px_8px_40px_#0000000a]" />
+          <div className="absolute inset-0 bg-white rounded-2xl border border-solid border-[#5b616e33] shadow-[0px_0px_2px_#00000026,0px_2px_5px_#0000000d,0px_8px_40px_#0000000a]" />
 
           {/* Bottom darker section */}
-          <div className="absolute top-[88px] left-1 right-1 bottom-1 bg-[#0e100f] rounded-2xl" />
+          <div className="absolute top-[88px] left-1 right-1 bottom-1 bg-[#eef0f3] rounded-2xl" />
 
           {/* Header section: icon + label + value + optional trend */}
           <div className="absolute top-6 left-[30px] flex items-center gap-0">
@@ -84,7 +84,7 @@ export const SummaryStatsSection = (): JSX.Element => {
                   src={card.icon}
                 />
               ) : (
-                <div className="w-[50px] h-[50px] bg-[#2a2b29] rounded-full flex items-center justify-center text-[#beb7c4]">
+                <div className="w-[50px] h-[50px] bg-[#eef0f3] rounded-full flex items-center justify-center text-[#5b616e]">
                   {card.icon}
                 </div>
               )}
@@ -121,7 +121,7 @@ export const SummaryStatsSection = (): JSX.Element => {
             </span>
           </div>
           <div className="absolute top-[127px] left-[30px]">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
               {card.stat1Value}
             </span>
           </div>
@@ -133,7 +133,7 @@ export const SummaryStatsSection = (): JSX.Element => {
             </span>
           </div>
           <div className="absolute top-[187px] left-[27px]">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
               {card.stat2Value}
             </span>
           </div>

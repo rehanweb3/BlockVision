@@ -23,19 +23,19 @@ const blockHashRows = [
 export const BlockHashesSection = (): JSX.Element => {
   return (
     <div className="w-full flex justify-center shadow-shadow">
-      <Card className="w-full bg-[#1f201e] rounded-2xl border border-solid border-[#2e2e2d] shadow-none">
+      <Card className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33] shadow-none">
         <CardContent className="px-6 py-0">
           {blockHashRows.map((row, index) => (
             <div key={index} className="flex flex-col">
               {/* Row content */}
               <div className="flex flex-row items-center py-[14px] gap-4">
                 {/* Label */}
-                <span className="w-[210px] shrink-0 [font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] tracking-[0] leading-[normal]">
+                <span className="w-[210px] shrink-0 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] tracking-[0] leading-[normal]">
                   {row.label}
                 </span>
                 {/* Value with optional icon */}
                 <div className="flex flex-row items-center gap-2">
-                  <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[13px] tracking-[0] leading-[normal]">
+                  <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] tracking-[0] leading-[normal]">
                     {row.value}
                   </span>
                   {row.icon && (
@@ -44,7 +44,7 @@ export const BlockHashesSection = (): JSX.Element => {
                 </div>
               </div>
               {/* Separator line below each row */}
-              <Separator className="bg-[#2e2e2d]" />
+              <Separator className="bg-[#5b616e33]" />
             </div>
           ))}
         </CardContent>

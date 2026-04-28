@@ -69,9 +69,9 @@ export const SearchBarSection = (): JSX.Element => {
   return (
     <div className="w-full shadow-shadow">
       {/* Main card container */}
-      <div className="w-full bg-[#1f201e] rounded-2xl border border-solid border-[#2e2e2d] overflow-hidden p-2.5">
+      <div className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33] overflow-hidden p-2.5">
         {/* Header section (Standardized) */}
-        <div className="relative w-full h-[47px] bg-[#363735] rounded-[10px] overflow-hidden flex items-center mb-[14px]">
+        <div className="relative w-full h-[47px] bg-[#eef0f3] rounded-[10px] overflow-hidden flex items-center mb-[14px]">
           {/* Striped rectangle overlays */}
           {Array.from({ length: rectangleCount }).map((_, index) => (
             <img
@@ -84,13 +84,13 @@ export const SearchBarSection = (): JSX.Element => {
           ))}
 
           {/* Title */}
-          <span className="absolute left-6 z-10 [font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+          <span className="absolute left-6 z-10 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
             Top Accounts
           </span>
 
           {/* View More link */}
           <div className="absolute right-[51px] z-10 flex items-center gap-1">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
               View More
             </span>
             <img
@@ -104,10 +104,10 @@ export const SearchBarSection = (): JSX.Element => {
         {/* Account rows */}
         <div className="flex flex-col px-2 pb-2">
           {topAccountsData.map((account, index) => (
-            <div key={index} className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#2e2e2d] last:border-0">
+            <div key={index} className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#5b616e33] last:border-0">
               {/* Left: Avatar + Rank info */}
               <div className="col-span-2 flex items-center gap-3">
-                <div className="w-10 h-10 flex-shrink-0 bg-[#2a2b29] rounded-full overflow-hidden">
+                <div className="w-10 h-10 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
                   <img
                     className="w-full h-full object-cover"
                     alt="Group"
@@ -115,10 +115,10 @@ export const SearchBarSection = (): JSX.Element => {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-white tracking-[0] leading-[normal] truncate">
+                  <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] tracking-[0] leading-[normal] truncate">
                     {account.rank}
                   </span>
-                  <span className="text-[10px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] tracking-[0] leading-[normal]">
+                  <span className="text-[10px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
                     {account.number}
                   </span>
                 </div>
@@ -126,50 +126,50 @@ export const SearchBarSection = (): JSX.Element => {
 
               {/* Wallet Address */}
               <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] text-xs tracking-[0] leading-[normal]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
                   Wallet Address
                 </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal] truncate pr-2">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] truncate pr-2">
                   {account.walletAddress}
                 </span>
               </div>
 
               {/* Total Balance */}
               <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] tracking-[0] leading-[normal]">
+                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
                   Total Balance
                 </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                   {account.totalBalance}
                 </span>
               </div>
 
               {/* Transactions */}
               <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] tracking-[0] leading-[normal]">
+                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
                   Transactions
                 </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                   {account.transactions}
                 </span>
               </div>
 
               {/* First Seen */}
               <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] tracking-[0] leading-[normal]">
+                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
                   First Seen
                 </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                   {account.firstSeen}
                 </span>
               </div>
 
               {/* Last Seen */}
               <div className="col-span-2 flex flex-col gap-0.5 text-right">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#beb7c4] tracking-[0] leading-[normal]">
+                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
                   Last Seen
                 </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-xs tracking-[0] leading-[normal]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
                   {account.lastSeen}
                 </span>
               </div>

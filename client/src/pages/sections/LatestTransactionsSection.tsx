@@ -10,12 +10,12 @@ export const LatestTransactionsSection = (): JSX.Element => {
   return (
     <div className="relative w-full shadow-shadow">
       {/* Main card container */}
-      <Card className="w-full bg-[#1f201e] rounded-2xl border border-solid border-[#2e2e2d] p-0">
+      <Card className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33] p-0">
         <CardContent className="p-2.5">
           {/* Inner content wrapper */}
           <div className="relative w-full">
             {/* Header bar */}
-            <div className="relative w-full h-[47px] bg-[#363735] rounded-[10px] overflow-hidden flex items-center">
+            <div className="relative w-full h-[47px] bg-[#eef0f3] rounded-[10px] overflow-hidden flex items-center">
               {/* Striped rectangle overlays */}
               {Array.from({ length: rectangleCount }).map((_, index) => (
                 <img
@@ -28,13 +28,13 @@ export const LatestTransactionsSection = (): JSX.Element => {
               ))}
 
               {/* Title */}
-              <span className="absolute left-6 z-10 [font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+              <span className="absolute left-6 z-10 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
                 Daily Active Accounts
               </span>
 
               {/* View More link */}
               <div className="absolute right-[51px] z-10 flex items-center gap-1">
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-base tracking-[0] leading-[normal]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
                   View More
                 </span>
                 <img
@@ -47,7 +47,7 @@ export const LatestTransactionsSection = (): JSX.Element => {
 
             {/* Chart area container */}
             <div
-              className="relative w-full mt-[14px] bg-[#1f201e] rounded-2xl border border-solid border-[#2e2e2d]"
+              className="relative w-full mt-[14px] bg-white rounded-2xl border border-solid border-[#5b616e33]"
               style={{ minHeight: "360px" }}
             >
               {/* Y-axis labels */}
@@ -58,7 +58,7 @@ export const LatestTransactionsSection = (): JSX.Element => {
                 {yAxisLabels.map((label, index) => (
                   <span
                     key={`y-label-${index}`}
-                    className="[font-family:'Satoshi-Regular',Helvetica] font-normal text-[#73736f] text-xs tracking-[0] leading-none -translate-y-1/2"
+                    className="[font-family:'Satoshi-Regular',Helvetica] font-normal text-[#5b616e] text-xs tracking-[0] leading-none -translate-y-1/2"
                   >
                     {label}
                   </span>

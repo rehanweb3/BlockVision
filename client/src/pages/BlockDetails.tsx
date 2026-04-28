@@ -15,9 +15,9 @@ const navItems = [
 
 export const BlockDetails = (): JSX.Element => {
   return (
-    <div className="bg-[#0e100f] w-full min-w-[1440px] min-h-screen flex flex-col">
+    <div className="bg-white w-full min-w-[1440px] min-h-screen flex flex-col">
       {/* Header / Navbar */}
-      <header className="w-full bg-[#1f201e] flex flex-col">
+      <header className="w-full bg-[#0a0b0d] flex flex-col">
         {/* Top nav row */}
         <div className="w-full flex items-center justify-between px-[49px] py-[27px]">
           {/* Logo */}
@@ -46,7 +46,7 @@ export const BlockDetails = (): JSX.Element => {
 
           {/* Connect Wallet button */}
           <Button
-            className="w-[188px] h-[45px] bg-white text-black rounded-[108px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-base tracking-[0] leading-[normal] hover:bg-white/90 border-none"
+            className="w-[188px] h-[45px] bg-[#0052ff] text-white rounded-[108px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-base tracking-[0] leading-[normal] hover:bg-[#578bfa] border-none transition-colors"
             variant="outline"
           >
             Connect Wallet
@@ -62,7 +62,7 @@ export const BlockDetails = (): JSX.Element => {
 
           {/* Search bar */}
           <div className="relative w-[501px] h-12">
-            <div className="absolute inset-0 bg-[#f6f6f5] rounded-[108px] border border-solid border-[#0e100f]" />
+            <div className="absolute inset-0 bg-[#eef0f3] rounded-[108px] border border-solid border-[#0a0b0d]" />
             <span className="absolute top-[13px] left-[34px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-black text-sm tracking-[0] leading-[normal] pointer-events-none">
               Search by Address, Transaction, Block, Token
             </span>

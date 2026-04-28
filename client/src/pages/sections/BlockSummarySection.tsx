@@ -18,31 +18,31 @@ const hashRows = [
 export const BlockSummarySection = (): JSX.Element => {
   return (
     <div className="w-full shadow-shadow">
-      <Card className="bg-[#1f201e] border border-solid border-[#2e2e2d] rounded-2xl">
+      <Card className="bg-white border border-solid border-[#5b616e33] rounded-2xl">
         <CardContent className="p-0 py-4 px-[25px] flex flex-col gap-0">
           {/* Extra Data Row */}
           <div className="flex items-center gap-4 py-3">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] leading-normal min-w-[210px]">
+            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] leading-normal min-w-[210px]">
               Extra Data:
             </span>
-            <div className="flex-1 bg-[#aba5b14f] rounded-[10px] px-6 py-[14px]">
-              <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[13px] leading-normal break-all">
+            <div className="flex-1 bg-[#5b616e33] rounded-[10px] px-6 py-[14px]">
+              <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] leading-normal break-all">
                 0x0000000000000000000000000000000000000000000000000000000000000000
               </span>
             </div>
           </div>
 
-          <Separator className="bg-[#2e2e2d] ml-[210px]" />
+          <Separator className="bg-[#5b616e33] ml-[210px]" />
 
           {/* Hash and Parent Hash Rows */}
           {hashRows.map((row, index) => (
             <div key={index}>
               <div className="flex items-center gap-4 py-3">
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-white text-[13px] leading-normal min-w-[210px]">
+                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] leading-normal min-w-[210px]">
                   {row.label}
                 </span>
                 <div className="flex items-center gap-2">
-                  <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[13px] leading-normal">
+                  <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] leading-normal">
                     {row.value}
                   </span>
                   {row.showIcon && (
@@ -55,7 +55,7 @@ export const BlockSummarySection = (): JSX.Element => {
                 </div>
               </div>
               {index < hashRows.length - 1 && (
-                <Separator className="bg-[#2e2e2d] ml-[210px]" />
+                <Separator className="bg-[#5b616e33] ml-[210px]" />
               )}
             </div>
           ))}

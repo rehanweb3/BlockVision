@@ -20,9 +20,9 @@ export const Desktop = (): JSX.Element => {
   const [activeNav, setActiveNav] = useState<string>("Blockchain");
 
   return (
-    <div className="bg-[#0e100f] w-full min-h-screen flex flex-col overflow-x-hidden">
+    <div className="bg-white w-full min-h-screen flex flex-col overflow-x-hidden">
       {/* Header / Navbar */}
-      <header className="w-full bg-[#1f201e] px-4 md:px-6">
+      <header className="w-full bg-[#0a0b0d] px-4 md:px-6">
         <div className="w-full flex flex-wrap items-center justify-between min-h-[88px] py-4 gap-4">
           {/* Logo */}
           <div className="flex items-center gap-3">
@@ -52,7 +52,7 @@ export const Desktop = (): JSX.Element => {
 
           {/* Connect Wallet Button */}
           <Button
-            className="h-[40px] w-[160px] py-[11px] bg-white text-black rounded-[108px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-base hover:bg-gray-100"
+            className="h-[40px] w-[160px] py-[11px] bg-[#0052ff] text-white rounded-[108px] [font-family:'Satoshi-Regular',Helvetica] font-normal text-base hover:bg-[#578bfa] transition-colors"
             variant="outline"
           >
             Connect Wallet
@@ -68,11 +68,11 @@ export const Desktop = (): JSX.Element => {
           {/* SearchIcon Bar in Hero */}
           <div className="relative w-full flex items-center justify-center">
             <div className="relative w-full max-w-[997px] min-h-16 flex items-center">
-              <div className="w-full h-16 bg-[#f6f6f5] rounded-[108px] border border-solid border-[#0e100f] flex items-center pl-[43px] pr-2">
-                <span className="[font-family:'Satoshi-Regular',Helvetica] font-normal text-[#8e8e8e] text-base tracking-[0] leading-[normal] flex-1">
+              <div className="w-full h-16 bg-[#eef0f3] rounded-[108px] border border-solid border-[#0a0b0d] flex items-center pl-[43px] pr-2">
+                <span className="[font-family:'Satoshi-Regular',Helvetica] font-normal text-[#5b616e] text-base tracking-[0] leading-[normal] flex-1">
                   Search by Address, Transaction, Block, Token
                 </span>
-                <button className="bg-[#1f201e] hover:bg-black transition-colors rounded-full w-[120px] h-12 flex items-center justify-center text-white">
+                <button className="bg-[#0052ff] hover:bg-[#578bfa] transition-colors rounded-full w-[120px] h-12 flex items-center justify-center text-white">
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
