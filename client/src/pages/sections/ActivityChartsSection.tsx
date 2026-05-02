@@ -101,7 +101,7 @@ const transactions = [
 
 export const ActivityChartsSection = (): JSX.Element => {
   return (
-    <div className="w-full h-full shadow-shadow">
+    <div className="w-full h-full">
       <Card className="bg-white rounded-2xl border border-solid border-[#5b616e33] w-full h-full">
         <CardContent className="p-2.5">
           {/* Header bar (Standardized) */}
@@ -119,13 +119,13 @@ export const ActivityChartsSection = (): JSX.Element => {
             </div>
 
             {/* Title */}
-            <span className="relative z-10 ml-6 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal] flex-1">
+            <span className="relative z-10 ml-6 [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal] flex-1">
               Daily Transactions
             </span>
 
             {/* View More link */}
             <div className="relative z-10 flex items-center gap-1 mr-4">
-              <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
+              <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
                 View More
               </span>
               <img
@@ -136,94 +136,98 @@ export const ActivityChartsSection = (): JSX.Element => {
             </div>
           </div>
 
-          <div className="flex flex-col px-2 pb-2">
-            {transactions.map((tx, index) => (
-              <div key={tx.id}>
-                {/* Transaction row (Standardized with Grid) */}
-                <div className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 gap-2">
-                  {/* Icon + tx hash + time */}
-                  <div className="col-span-4 flex items-center gap-3">
-                    <img className="w-10 h-10 shrink-0" alt="Vec" src={tx.icon} />
-                    <div className="flex flex-col gap-0.5">
-                      <a
-                        className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate max-w-[120px]"
-                        href={tx.txUrl}
-                        rel="noopener noreferrer"
-                        target="_blank"
-                      >
-                        {tx.txHash}
-                      </a>
-                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                        {tx.time}
+          <div className="w-full overflow-x-auto custom-scrollbar">
+            <div className="flex flex-col px-2 pb-2 min-w-[700px]">
+              {transactions.map((tx, index) => (
+                <div key={tx.id}>
+                  {/* Transaction row (Standardized with Grid) */}
+                  <div className="grid grid-cols-12 items-center w-full min-h-[64px] py-2 gap-2">
+                    {/* Icon + tx hash + time */}
+                    <div className="col-span-4 flex items-center gap-3">
+                      <div className="w-10 h-10 shrink-0 bg-[#eef0f3] rounded-xl flex items-center justify-center">
+                        <img className="w-5 h-5" alt="Vec" src={tx.icon} />
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        <a
+                          className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate max-w-[120px]"
+                          href={tx.txUrl}
+                          rel="noopener noreferrer"
+                          target="_blank"
+                        >
+                          {tx.txHash}
+                        </a>
+                        <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                          {tx.time}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* From / To */}
+                    <div className="col-span-5 flex flex-col gap-1">
+                      <div className="flex items-center gap-2">
+                        <span className="[font-family:'Inter',sans-serif] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal] w-[35px]">
+                          From
+                        </span>
+                        <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                          <div className="w-5 h-5 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
+                            <img
+                              className="w-full h-full object-cover"
+                              alt="Avatar"
+                              src={makeBlockie(tx.fromAddress)}
+                            />
+                          </div>
+                          <a
+                            className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate"
+                            href={tx.fromUrl}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {tx.fromAddress}
+                          </a>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <span className="[font-family:'Inter',sans-serif] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal] w-[35px]">
+                          To
+                        </span>
+                        <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                          <div className="w-5 h-5 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
+                            <img
+                              className="w-full h-full object-cover"
+                              alt="Avatar"
+                              src={makeBlockie(tx.toAddress)}
+                            />
+                          </div>
+                          <a
+                            className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate"
+                            href={tx.toUrl}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                          >
+                            {tx.toAddress}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Amount */}
+                    <div className="col-span-3 flex flex-col gap-0.5 text-right">
+                      <span className="[font-family:'Inter',sans-serif] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
+                        Amount
+                      </span>
+                      <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                        {tx.amount}
                       </span>
                     </div>
                   </div>
 
-                  {/* From / To */}
-                  <div className="col-span-12 md:col-span-5 flex flex-col gap-1">
-                    <div className="flex items-center gap-2">
-                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal] w-[35px]">
-                        From
-                      </span>
-                      <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                        <div className="w-5 h-5 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
-                          <img
-                            className="w-full h-full object-cover"
-                            alt="Avatar"
-                            src={makeBlockie(tx.fromAddress)}
-                          />
-                        </div>
-                        <a
-                          className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate"
-                          href={tx.fromUrl}
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          {tx.fromAddress}
-                        </a>
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal] w-[35px]">
-                        To
-                      </span>
-                      <div className="flex items-center gap-1.5 flex-1 min-w-0">
-                        <div className="w-5 h-5 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
-                          <img
-                            className="w-full h-full object-cover"
-                            alt="Avatar"
-                            src={makeBlockie(tx.toAddress)}
-                          />
-                        </div>
-                        <a
-                          className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] underline truncate"
-                          href={tx.toUrl}
-                          rel="noopener noreferrer"
-                          target="_blank"
-                        >
-                          {tx.toAddress}
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Amount */}
-                  <div className="col-span-3 flex flex-col gap-0.5 text-right">
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
-                      Amount
-                    </span>
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                      {tx.amount}
-                    </span>
-                  </div>
+                  {/* Separator between rows, not after last */}
+                  {index < transactions.length - 1 && (
+                    <Separator className="bg-[#5b616e33]" />
+                  )}
                 </div>
-
-                {/* Separator between rows, not after last */}
-                {index < transactions.length - 1 && (
-                  <Separator className="bg-[#5b616e33]" />
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </CardContent>
       </Card>

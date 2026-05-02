@@ -1,7 +1,7 @@
 import makeBlockie from "ethereum-blockies-base64";
 
 // Account data for the top accounts list
-const rectangleCount = 33;
+const rectangleCount = 40;
 const topAccountsData = [
   {
     rank: "Top 1",
@@ -67,7 +67,7 @@ const topAccountsData = [
 
 export const SearchBarSection = (): JSX.Element => {
   return (
-    <div className="w-full shadow-shadow">
+    <div className="w-full">
       {/* Main card container */}
       <div className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33] overflow-hidden p-2.5">
         {/* Header section (Standardized) */}
@@ -84,13 +84,13 @@ export const SearchBarSection = (): JSX.Element => {
           ))}
 
           {/* Title */}
-          <span className="absolute left-6 z-10 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
+          <span className="absolute left-6 z-10 [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
             Top Accounts
           </span>
 
           {/* View More link */}
           <div className="absolute right-[51px] z-10 flex items-center gap-1">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
               View More
             </span>
             <img
@@ -102,79 +102,81 @@ export const SearchBarSection = (): JSX.Element => {
         </div>
 
         {/* Account rows */}
-        <div className="flex flex-col px-2 pb-2">
-          {topAccountsData.map((account, index) => (
-            <div key={index} className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#5b616e33] last:border-0">
-              {/* Left: Avatar + Rank info */}
-              <div className="col-span-2 flex items-center gap-3">
-                <div className="w-10 h-10 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
-                  <img
-                    className="w-full h-full object-cover"
-                    alt="Group"
-                    src={account.iconSrc}
-                  />
+        <div className="w-full overflow-x-auto custom-scrollbar">
+          <div className="flex flex-col px-2 pb-2 min-w-[1000px]">
+            {topAccountsData.map((account, index) => (
+              <div key={index} className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#5b616e33] last:border-0">
+                {/* Left: Avatar + Rank info */}
+                <div className="col-span-2 flex items-center gap-3">
+                  <div className="w-10 h-10 flex-shrink-0 bg-[#eef0f3] rounded-full overflow-hidden">
+                    <img
+                      className="w-full h-full object-cover"
+                      alt="Group"
+                      src={account.iconSrc}
+                    />
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-xs [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] tracking-[0] leading-[normal] truncate">
+                      {account.rank}
+                    </span>
+                    <span className="text-[10px] [font-family:'Inter',sans-serif] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
+                      {account.number}
+                    </span>
+                  </div>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] tracking-[0] leading-[normal] truncate">
-                    {account.rank}
+
+                {/* Wallet Address */}
+                <div className="col-span-2 flex flex-col gap-0.5">
+                  <span className="[font-family:'Inter',sans-serif] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
+                    Wallet Address
                   </span>
-                  <span className="text-[10px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
-                    {account.number}
+                  <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] truncate pr-2">
+                    {account.walletAddress}
+                  </span>
+                </div>
+
+                {/* Total Balance */}
+                <div className="col-span-2 flex flex-col gap-0.5">
+                  <span className="text-xs [font-family:'Inter',sans-serif] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
+                    Total Balance
+                  </span>
+                  <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                    {account.totalBalance}
+                  </span>
+                </div>
+
+                {/* Transactions */}
+                <div className="col-span-2 flex flex-col gap-0.5">
+                  <span className="text-xs [font-family:'Inter',sans-serif] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
+                    Transactions
+                  </span>
+                  <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                    {account.transactions}
+                  </span>
+                </div>
+
+                {/* First Seen */}
+                <div className="col-span-2 flex flex-col gap-0.5">
+                  <span className="text-xs [font-family:'Inter',sans-serif] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
+                    First Seen
+                  </span>
+                  <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                    {account.firstSeen}
+                  </span>
+                </div>
+
+                {/* Last Seen */}
+                <div className="col-span-2 flex flex-col gap-0.5 text-right">
+                  <span className="text-xs [font-family:'Inter',sans-serif] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
+                    Last Seen
+                  </span>
+                  <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                    {account.lastSeen}
                   </span>
                 </div>
               </div>
-
-              {/* Wallet Address */}
-              <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
-                  Wallet Address
-                </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] truncate pr-2">
-                  {account.walletAddress}
-                </span>
-              </div>
-
-              {/* Total Balance */}
-              <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
-                  Total Balance
-                </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                  {account.totalBalance}
-                </span>
-              </div>
-
-              {/* Transactions */}
-              <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
-                  Transactions
-                </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                  {account.transactions}
-                </span>
-              </div>
-
-              {/* First Seen */}
-              <div className="col-span-2 flex flex-col gap-0.5">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
-                  First Seen
-                </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                  {account.firstSeen}
-                </span>
-              </div>
-
-              {/* Last Seen */}
-              <div className="col-span-2 flex flex-col gap-0.5 text-right">
-                <span className="text-xs [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] tracking-[0] leading-[normal]">
-                  Last Seen
-                </span>
-                <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                  {account.lastSeen}
-                </span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

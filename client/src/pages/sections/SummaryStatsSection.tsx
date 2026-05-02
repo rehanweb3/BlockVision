@@ -69,7 +69,7 @@ export const SummaryStatsSection = (): JSX.Element => {
       {statCards.map((card, index) => (
         <div key={index} className="w-full h-[227px] relative">
           {/* Card background */}
-          <div className="absolute inset-0 bg-white rounded-2xl border border-solid border-[#5b616e33] shadow-[0px_0px_2px_#00000026,0px_2px_5px_#0000000d,0px_8px_40px_#0000000a]" />
+          <div className="absolute inset-0 bg-white rounded-2xl border border-solid border-[#5b616e33]" />
 
           {/* Bottom darker section */}
           <div className="absolute top-[88px] left-1 right-1 bottom-1 bg-[#eef0f3] rounded-2xl" />
@@ -90,11 +90,11 @@ export const SummaryStatsSection = (): JSX.Element => {
               )}
             </div>
             <div className="ml-2 flex flex-col justify-center">
-              <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-secondary-text text-base tracking-[0] leading-[normal]">
+              <span className="[font-family:'Inter',sans-serif] font-medium text-secondary-text text-base tracking-[0] leading-[normal]">
                 {card.headerLabel}
               </span>
               <div className="flex items-center gap-2">
-                <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-main-text text-base tracking-[0] leading-[normal]">
+                <span className="[font-family:'Inter',sans-serif] font-light text-main-text text-base tracking-[0] leading-[normal]">
                   {card.headerValue}
                 </span>
                 {/* Trend indicator */}
@@ -105,7 +105,7 @@ export const SummaryStatsSection = (): JSX.Element => {
                       alt="trend"
                       src={card.trendIcon}
                     />
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#45e3d0] text-xs tracking-[0] leading-[normal]">
+                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#45e3d0] text-xs tracking-[0] leading-[normal]">
                       {card.trendValue}
                     </span>
                   </div>
@@ -116,24 +116,24 @@ export const SummaryStatsSection = (): JSX.Element => {
 
           {/* Stat 1 */}
           <div className="absolute top-[103px] left-[27px]">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-secondary-text text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Inter',sans-serif] font-medium text-secondary-text text-base tracking-[0] leading-[normal]">
               {card.stat1Label}
             </span>
           </div>
           <div className="absolute top-[127px] left-[30px]">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
               {card.stat1Value}
             </span>
           </div>
 
           {/* Stat 2 */}
           <div className="absolute top-[163px] left-[27px]">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-secondary-text text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Inter',sans-serif] font-medium text-secondary-text text-base tracking-[0] leading-[normal]">
               {card.stat2Label}
             </span>
           </div>
           <div className="absolute top-[187px] left-[27px]">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
               {card.stat2Value}
             </span>
           </div>

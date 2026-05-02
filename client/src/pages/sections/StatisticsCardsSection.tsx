@@ -49,7 +49,7 @@ const blockData = [
 
 export const StatisticsCardsSection = (): JSX.Element => {
   return (
-    <div className="w-full h-full shadow-shadow">
+    <div className="w-full h-full">
       <Card className="bg-white rounded-2xl border border-solid border-[#5b616e33] overflow-hidden h-full">
         <CardContent className="p-2.5">
 
@@ -69,13 +69,13 @@ export const StatisticsCardsSection = (): JSX.Element => {
             </div>
 
             {/* Title */}
-            <span className="relative z-10 ml-6 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal] flex-1">
+            <span className="relative z-10 ml-6 [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal] flex-1">
               Latest Blocks
             </span>
 
             {/* View More */}
             <div className="relative z-10 flex items-center gap-1 mr-4">
-              <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
+              <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
                 View More
               </span>
               <img
@@ -88,66 +88,70 @@ export const StatisticsCardsSection = (): JSX.Element => {
           </div>
 
           {/* Blocks List */}
-          <div className="flex flex-col px-2 pb-2">
+          <div className="w-full overflow-x-auto custom-scrollbar">
+            <div className="flex flex-col px-2 pb-2 min-w-[600px]">
 
-            {blockData.map((block, index) => (
-              <div
-                key={index}
-                className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#5b616e33] last:border-0"
-              >
+              {blockData.map((block, index) => (
+                <div
+                  key={index}
+                  className="grid grid-cols-12 items-center w-full min-h-[64px] py-1 border-b border-[#5b616e33] last:border-0"
+                >
 
-                {/* Icon + Block ID + Time */}
-                <div className="col-span-4 flex items-center gap-3">
+                  {/* Icon + Block ID + Time */}
+                  <div className="col-span-4 flex items-center gap-3">
 
-                  <img
-                    className="w-10 h-10 shrink-0"
-                    alt="Vec"
-                    src={block.icon}
-                  />
+                    <div className="w-10 h-10 shrink-0 bg-[#eef0f3] rounded-xl flex items-center justify-center">
+                      <img
+                        className="w-5 h-5"
+                        alt="Vec"
+                        src={block.icon}
+                      />
+                    </div>
 
-                  <div className="flex flex-col gap-0.5">
+                    <div className="flex flex-col gap-0.5">
 
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                      {block.id}
+                      <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                        {block.id}
+                      </span>
+
+                      <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                        {block.time}
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                  {/* Proposed by Validator */}
+                  <div className="col-span-5 flex flex-col gap-0.5">
+
+                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
+                      Proposed by Validator
                     </span>
 
-                    <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                      {block.time}
+                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                      {block.validator}
+                    </span>
+
+                  </div>
+
+                  {/* Total Txn */}
+                  <div className="col-span-3 flex flex-col gap-0.5 text-right">
+
+                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
+                      Total Txn
+                    </span>
+
+                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
+                      {block.txn}
                     </span>
 
                   </div>
 
                 </div>
+              ))}
 
-                {/* Proposed by Validator */}
-                <div className="col-span-5 flex flex-col gap-0.5">
-
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
-                    Proposed by Validator
-                  </span>
-
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                    {block.validator}
-                  </span>
-
-                </div>
-
-                {/* Total Txn */}
-                <div className="col-span-3 flex flex-col gap-0.5 text-right">
-
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#5b616e] text-xs tracking-[0] leading-[normal]">
-                    Total Txn
-                  </span>
-
-                  <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                    {block.txn}
-                  </span>
-
-                </div>
-
-              </div>
-            ))}
-
+            </div>
           </div>
 
         </CardContent>

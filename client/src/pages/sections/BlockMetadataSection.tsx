@@ -82,7 +82,7 @@ const AddressBadge = ({ address }: { address: string }) => (
       alt="Iftfjcncmmriumot"
       src="/figmaAssets/i0ftf3jcnc8mmriumot-1.svg"
     />
-    <span className="absolute top-[3px] left-[30px] w-[65px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] truncate">
+    <span className="absolute top-[3px] left-[30px] w-[65px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] truncate">
       {address}
     </span>
     <img
@@ -95,7 +95,7 @@ const AddressBadge = ({ address }: { address: string }) => (
 
 export const BlockMetadataSection = (): JSX.Element => {
   return (
-    <section className="w-full shadow-shadow">
+    <section className="w-full">
       {/* Outer container with dark background and border */}
       <div className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33] overflow-hidden">
         {/* Top decorative bar with title */}
@@ -107,7 +107,7 @@ export const BlockMetadataSection = (): JSX.Element => {
           />
           {/* Title overlaid on the top bar */}
           <div className="absolute top-0 left-0 w-full h-[47px] flex items-center px-[39px]">
-            <span className="[font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
+            <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal]">
               140,392,874Txns Found
             </span>
           </div>
@@ -115,38 +115,38 @@ export const BlockMetadataSection = (): JSX.Element => {
 
         {/* Table header row */}
         <div className="mx-3.5 mt-[14px] mb-0">
-          <div className="w-full h-[30px] rounded-lg border-[0.6px] border-solid border-[#8a91a0] flex items-center px-3.5">
+          <div className="w-full h-[30px] rounded-lg border border-solid border-[#dee1e6] flex items-center px-3.5">
             <div className="flex items-center w-full">
               {/* TXN HASH */}
-              <div className="w-[148px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
+              <div className="w-[148px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
                 TXN HASH
               </div>
               {/* METHOD */}
-              <div className="w-[130px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[119px]">
+              <div className="w-[130px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[119px]">
                 METHOD
               </div>
               {/* FROM */}
-              <div className="w-[87px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[106px]">
+              <div className="w-[87px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[106px]">
                 FROM
               </div>
               {/* TO */}
-              <div className="w-[42px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[66px]">
+              <div className="w-[42px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[66px]">
                 TO
               </div>
               {/* AGE */}
-              <div className="w-16 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[83px]">
+              <div className="w-16 [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[83px]">
                 AGE
               </div>
               {/* STATUS */}
-              <div className="w-[109px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[101px]">
+              <div className="w-[109px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0 ml-[101px]">
                 STATUS
               </div>
               {/* AMOUNT */}
-              <div className="w-[133px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
+              <div className="w-[133px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
                 AMOUNT
               </div>
               {/* Gas Fee */}
-              <div className="w-[39px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
+              <div className="w-[39px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
                 Gas Fee
               </div>
             </div>
@@ -166,7 +166,7 @@ export const BlockMetadataSection = (): JSX.Element => {
               </div>
 
               {/* METHOD */}
-              <div className="ml-[100px] w-[142px] [font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
+              <div className="ml-[100px] w-[142px] [font-family:'Inter',sans-serif] font-bold text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
                 {row.method}
               </div>
 
@@ -181,7 +181,7 @@ export const BlockMetadataSection = (): JSX.Element => {
               </div>
 
               {/* AGE */}
-              <div className="ml-[38px] w-[95px] [font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
+              <div className="ml-[38px] w-[95px] [font-family:'Inter',sans-serif] font-bold text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
                 {row.age}
               </div>
 
@@ -195,7 +195,7 @@ export const BlockMetadataSection = (): JSX.Element => {
               </div>
 
               {/* AMOUNT */}
-              <div className="ml-[101px] w-[58px] [font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
+              <div className="ml-[101px] w-[58px] [font-family:'Inter',sans-serif] font-bold text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal] shrink-0">
                 {row.amount}
               </div>
 
@@ -206,7 +206,7 @@ export const BlockMetadataSection = (): JSX.Element => {
                   alt="Xrlwutxvnmmrj"
                   src="/figmaAssets/xrlwu14txvnmmrj8244-1.svg"
                 />
-                <span className="w-[46px] [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal]">
+                <span className="w-[46px] [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-[10px] tracking-[0] leading-[normal]">
                   {row.gasFee}
                 </span>
               </div>

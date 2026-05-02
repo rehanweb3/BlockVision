@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import blockies from "ethereum-blockies-base64";
 
 // Navigation links data
 const navLinks = [
@@ -11,48 +12,74 @@ const navLinks = [
     { label: "Statistics" },
 ];
 
-// Transaction data
-const transactions = Array.from({ length: 30 }, (_, i) => ({
-    id: i,
-    txnHash: "0x99e4...6ae2",
-    method: "UpdateDataFeedsValuesPartial",
-    from: "0xd56D...6Ca6",
-    to: "0x99e4...6ae2",
-    age: "26 mins 34 secs ago",
-    amount: "10,000,000",
-    gasFee: "0.001ATH",
-}));
+// Top Contracts data
+const topContractsRows = [
+    { id: "🥇", address: "0xECA4...E812", accounts: "320", transactions: "20,397", gas: "1,934.77 MON" },
+    { id: "🥈", address: "Fortytwo", accounts: "117", transactions: "521", gas: "3.52675 MON" },
+    { id: "🥉", address: "0xa336...9eD7", accounts: "49", transactions: "272", gas: "9.20289 MON" },
+    { id: "4", address: "Monad: Staking", accounts: "26", transactions: "210,284", gas: "16.36792 MON" },
+    { id: "5", address: "0x5Dc4...cc00", accounts: "16", transactions: "168", gas: "4.43088 MON" },
+    { id: "6", address: "0x0000...a032", accounts: "15", transactions: "215", gas: "9.58093 MON" },
+    { id: "7", address: "0x5FF1...2789", accounts: "14", transactions: "171", gas: "21.52129 MON" },
+    { id: "8", address: "USDC", accounts: "9", transactions: "42", gas: "0.57884 MON" },
+    { id: "9", address: "0x760A...5701", accounts: "7", transactions: "14", gas: "0.06915 MON" },
+    { id: "10", address: "0x4337...f108", accounts: "6", transactions: "24", gas: "0.63692 MON" },
+    { id: "11", address: "0x16F4...705a", accounts: "6", transactions: "331", gas: "7.2425 MON" },
+    { id: "12", address: "0x1964...80cc", accounts: "6", transactions: "209,185", gas: "14,876 MON" },
+    { id: "13", address: "0x4B53...Be89", accounts: "5", transactions: "24", gas: "0.57814 MON" },
+    { id: "14", address: "0x2af3...5269", accounts: "5", transactions: "40", gas: "9.90753 MON" },
+    { id: "15", address: "Wrapped MON", accounts: "4", transactions: "8", gas: "0.0832 MON" },
+    { id: "16", address: "0xcA11...CA11", accounts: "4", transactions: "1,581", gas: "11.55292 MON" },
+];
 
-const rectangleDecorations = Array.from({ length: 24 });
+const timeTabs = ["1D", "3D", "7D"];
+const rectangleDecorations = Array.from({ length: 30 });
 
-import blockies from "ethereum-blockies-base64";
+const isNamedContract = (address: string) => {
+    return !address.startsWith("0x");
+};
 
 // Address badge component
-const AddressBadge = ({ address }: { address: string }) => (
-    <div className="relative w-fit h-[26px] bg-white border border-[#dee1e6] rounded inline-flex items-center px-2 gap-2 hover:bg-[#5b616e33] transition-colors cursor-pointer shadow-sm">
-        <img
-            className="w-4 h-4 flex-shrink-0 rounded-full"
-            alt="address blockie"
-            src={blockies(address)}
-        />
-        <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] truncate uppercase">
-            {address}
-        </span>
-        <img
-            className="w-3.5 h-3.5 flex-shrink-0 ml-auto opacity-60 hover:opacity-100"
-            alt="copy"
-            src="/figmaAssets/7b8yf903kp7mmrir8vx-1.svg"
-        />
-    </div>
-);
+const AddressBadge = ({ address }: { address: string }) => {
+    const named = isNamedContract(address);
+    return (
+        <div className={`relative w-fit h-[26px] bg-white border border-[#dee1e6] rounded inline-flex items-center px-2 gap-2 hover:bg-[#5b616e33] transition-colors cursor-pointer shadow-sm ${named ? "bg-gray-50" : ""}`}>
+            {!named && (
+                <img
+                    className="w-4 h-4 flex-shrink-0 rounded-full"
+                    alt="address blockie"
+                    src={blockies(address)}
+                />
+            )}
+            {named && (
+                <img
+                    className="w-4 h-4 flex-shrink-0"
+                    alt="document icon"
+                    src="/figmaAssets/prg5vm87r5mmrj57oo-1.svg" 
+                />
+            )}
+            <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] truncate uppercase">
+                {address}
+            </span>
+            {!named && (
+                <img
+                    className="w-3.5 h-3.5 flex-shrink-0 ml-auto opacity-60 hover:opacity-100"
+                    alt="copy"
+                    src="/figmaAssets/7b8yf903kp7mmrir8vx-1.svg"
+                />
+            )}
+        </div>
+    );
+};
 
-export const Txn = (): JSX.Element => {
-    const [activeNav, setActiveNav] = useState<string>("Transactions");
+export const TopContracts = (): JSX.Element => {
+    const [activeNav, setActiveNav] = useState<string>("Blockchain");
+    const [activeTimeTab, setActiveTimeTab] = useState<string>("1D");
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
     const [isMobileSearchOpen, setIsMobileSearchOpen] = useState<boolean>(false);
 
     return (
-        <div className="bg-white w-full min-h-screen flex flex-col overflow-x-hidden [font-family:'Inter',sans-serif]">
+        <div className="bg-[#f8f9fa] w-full min-h-screen flex flex-col overflow-x-hidden [font-family:'Inter',sans-serif]">
             {/* Top Navigation Bar */}
             <header className="w-full h-16 bg-[#eef0f3] border-b border-[#dee1e6] flex items-center px-4 md:px-10 sticky top-0 z-50">
                 <div className="w-full flex items-center justify-between">
@@ -189,14 +216,14 @@ export const Txn = (): JSX.Element => {
                 <div className="max-w-[1440px] w-full mx-auto flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
                     {/* Left: Title */}
                     <h1 className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-3xl md:text-[40px] tracking-tight leading-tight">
-                        Transactions
+                        Top Contracts
                     </h1>
 
                     {/* Right: Search bar */}
-                    <div className="w-full max-w-[500px] relative hidden md:block">
+                    <div className="w-full lg:max-w-[500px] relative hidden md:block">
                         <div className="w-full h-12 bg-white rounded-full flex items-center pl-10 pr-2 border border-[#dee1e6] group focus-within:ring-2 focus-within:ring-[#0052ff] transition-all">
                             <span className="text-[#5b616e] text-sm flex-1 text-left overflow-hidden whitespace-nowrap overflow-ellipsis mr-4 [font-family:'Inter',sans-serif]">
-                                Search by Address, Transaction, Block, Token
+                                Search by Address, Transaction, Block, Token, NFT
                             </span>
                             <button className="bg-[#0052ff] hover:bg-[#003ecc] transition-colors rounded-full px-6 h-8 flex items-center justify-center text-white [font-family:'Inter',sans-serif] font-medium text-xs">
                                 Search
@@ -208,9 +235,25 @@ export const Txn = (): JSX.Element => {
 
             {/* Main content */}
             <main className="w-full min-w-0 max-w-[1440px] mx-auto px-4 lg:px-[21px] py-[24px]">
+                
+                {/* Time Tabs */}
+                <div className="flex items-center gap-2 mb-4 border-b border-[#dee1e6] pb-2 overflow-x-auto">
+                    {timeTabs.map((tab) => (
+                        <button
+                            key={tab}
+                            onClick={() => setActiveTimeTab(tab)}
+                            className={`h-10 px-6 rounded-full [font-family:'Inter',sans-serif] font-medium text-sm tracking-wide transition-all whitespace-nowrap ${activeTimeTab === tab
+                                ? "bg-[#0052ff] text-white"
+                                : "bg-transparent text-[#5b616e] hover:bg-[#eef0f3] hover:text-[#0a0b0d]"
+                                }`}
+                        >
+                            {tab}
+                        </button>
+                    ))}
+                </div>
+
                 {/* Table card */}
-                <Card className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33] shadow-none overflow-hidden">
-                    {/* Table Container with standard padding */}
+                <Card className="w-full bg-white rounded-2xl border border-solid border-[#dee1e6] shadow-none overflow-hidden">
                     <CardContent className="p-2.5">
                         {/* Table header bar */}
                         <div className="relative w-full h-[47px] bg-[#eef0f3] rounded-[10px] mb-[14px] flex items-center overflow-hidden">
@@ -219,7 +262,7 @@ export const Txn = (): JSX.Element => {
                                 {rectangleDecorations.map((_, index) => (
                                     <img
                                         key={`rect-${index}`}
-                                        className="w-[50px] h-[47px] flex-shrink-0"
+                                        className="w-[50px] h-[47px] flex-shrink-0 opacity-40"
                                         alt="Rectangle"
                                         src="/figmaAssets/rectangle-14.svg"
                                     />
@@ -228,97 +271,62 @@ export const Txn = (): JSX.Element => {
 
                             {/* Title / Count */}
                             <span className="relative z-10 ml-6 [font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-base tracking-[0] leading-[normal] flex-1">
-                                140,392,874 Txns Found
+                                100 Top Contracts
                             </span>
                         </div>
 
                         {/* Table Content Area */}
                         <div className="w-full overflow-x-auto">
-                            <div className="min-w-[1240px] px-2.5">
+                            <div className="min-w-[1000px] px-2.5">
                                 {/* Column headers */}
-                                <div className="w-full h-[30px] rounded-lg border border-solid border-[#dee1e6] grid grid-cols-[1.5fr_1.5fr_1.2fr_1.2fr_1.2fr_0.5fr_1.2fr_0.8fr] gap-4 items-center px-4 mb-2">
-                                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase">
-                                        TXN HASH
-                                    </span>
+                                <div className="w-full h-[30px] rounded-lg border border-solid border-[#dee1e6] grid grid-cols-[0.5fr_2fr_1.5fr_1.5fr_1.5fr] gap-4 items-center px-4 mb-2">
                                     <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase text-center">
-                                        METHOD
+                                        #
                                     </span>
                                     <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase">
-                                        FROM
+                                        CONTRACTS
                                     </span>
                                     <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase">
-                                        TO
+                                        ACCOUNTS
                                     </span>
                                     <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase">
-                                        AGE
-                                    </span>
-                                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase text-center">
-                                        STATUS
+                                        TRANSACTIONS
                                     </span>
                                     <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase">
-                                        AMOUNT
-                                    </span>
-                                    <span className="[font-family:'Inter',sans-serif] font-medium text-[#0a0b0d] text-xs tracking-[0] leading-[normal] uppercase">
-                                        Gas Fee
+                                        GAS CONSUMPTION
                                     </span>
                                 </div>
 
-                                {/* Transaction rows with dividers */}
+                                {/* Rows */}
                                 <div className="flex flex-col pb-4">
-                                    {transactions.map((txn) => (
+                                    {topContractsRows.map((row) => (
                                         <div
-                                            key={txn.id}
-                                            className="w-full min-h-[50px] grid grid-cols-[1.5fr_1.5fr_1.2fr_1.2fr_1.2fr_0.5fr_1.2fr_0.8fr] gap-4 items-center px-4 border-b border-[#dee1e6] last:border-0 hover:bg-[#f8f9fa] transition-colors"
+                                            key={row.id}
+                                            className="w-full min-h-[50px] grid grid-cols-[0.5fr_2fr_1.5fr_1.5fr_1.5fr] gap-4 items-center px-4 py-2 border-b border-[#dee1e6] last:border-0 hover:bg-[#f8f9fa] transition-colors"
                                         >
-                                            {/* TXN HASH */}
+                                            {/* # */}
+                                            <div className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[15px] tracking-[0] leading-[normal] text-center">
+                                                {row.id}
+                                            </div>
+
+                                            {/* CONTRACTS */}
                                             <div className="flex justify-start">
-                                                <AddressBadge address={txn.txnHash} />
+                                                <AddressBadge address={row.address} />
                                             </div>
 
-                                            {/* METHOD */}
-                                            <div className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-xs tracking-[0] leading-[normal] truncate text-center">
-                                                {txn.method}
+                                            {/* ACCOUNTS */}
+                                            <div className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px] tracking-[0] leading-[normal]">
+                                                {row.accounts}
                                             </div>
 
-                                            {/* FROM */}
-                                            <div className="flex justify-start">
-                                                <AddressBadge address={txn.from} />
+                                            {/* TRANSACTIONS */}
+                                            <div className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px] tracking-[0] leading-[normal]">
+                                                {row.transactions}
                                             </div>
 
-                                            {/* TO */}
-                                            <div className="flex justify-start">
-                                                <AddressBadge address={txn.to} />
-                                            </div>
-
-                                            {/* AGE */}
-                                            <div className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                                                {txn.age}
-                                            </div>
-
-                                            {/* STATUS */}
-                                            <div className="flex justify-center">
-                                                <img
-                                                    className="w-4 h-4"
-                                                    alt="status"
-                                                    src="/figmaAssets/prg5vm87r5mmrj57oo-1.svg"
-                                                />
-                                            </div>
-
-                                            {/* AMOUNT */}
-                                            <div className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-xs tracking-[0] leading-[normal]">
-                                                {txn.amount}
-                                            </div>
-
-                                            {/* GAS FEE */}
-                                            <div className="flex items-center gap-1">
-                                                <img
-                                                    className="w-4 h-4 flex-shrink-0"
-                                                    alt="gas fee icon"
-                                                    src="/figmaAssets/xrlwu14txvnmmrj8244-1.svg"
-                                                />
-                                                <span className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-xs tracking-[0] leading-[normal] truncate">
-                                                    {txn.gasFee}
-                                                </span>
+                                            {/* GAS CONSUMPTION */}
+                                            <div className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px] tracking-[0] leading-[normal]">
+                                                {row.gas}
                                             </div>
                                         </div>
                                     ))}

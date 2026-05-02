@@ -6,7 +6,7 @@ const feeRows = [
   {
     label: "Gas Limit (Gas Used):",
     value: (
-      <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px]">
+      <span className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px]">
         0
       </span>
     ),
@@ -14,7 +14,7 @@ const feeRows = [
   {
     label: "Gas Price:",
     value: (
-      <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px]">
+      <span className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px]">
         0 Gwei
       </span>
     ),
@@ -22,9 +22,9 @@ const feeRows = [
   {
     label: "Gas Fees:",
     value: (
-      <span className="[font-family:'Satoshi-Regular',Helvetica] font-normal text-[#0a0b0d] text-[13px]">
+      <span className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px]">
         Base:{" "}
-        <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold">
+        <span className="[font-family:'Inter',sans-serif] font-normal">
           100Gwei
         </span>
       </span>
@@ -33,11 +33,8 @@ const feeRows = [
   {
     label: "Burnt & Txn Savings Fees:",
     value: (
-      <span className="[font-family:'Satoshi-Regular',Helvetica] font-normal text-[#0a0b0d] text-[13px]">
-        Burnt
-        <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold">
-          : 0ATH
-        </span>
+      <span className="[font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px]">
+        Burnt: 0ATH
       </span>
     ),
   },
@@ -45,17 +42,17 @@ const feeRows = [
 
 export const TransactionFeeDetailsSection = (): JSX.Element => {
   return (
-    <div className="w-full shadow-shadow">
-      <Card className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33]">
+    <div className="w-full">
+      <Card className="w-full bg-white rounded-2xl border border-solid border-[#5b616e33] p-0 shadow-none">
         <CardContent className="px-6 py-0">
           {feeRows.map((row, index) => (
             <div key={index}>
               {/* Row with label and value */}
-              <div className="flex flex-row items-start py-[14px] gap-4">
-                <div className="w-[200px] shrink-0 [font-family:'Satoshi-Medium',Helvetica] font-medium text-[#0a0b0d] text-[13px] tracking-[0] leading-normal">
+              <div className="flex flex-col md:flex-row md:items-start py-[14px] gap-2 md:gap-4">
+                <div className="w-full md:w-[200px] shrink-0 [font-family:'Inter',sans-serif] font-medium text-[#5b616e] md:text-[#0a0b0d] text-[13px] tracking-[0] leading-normal">
                   {row.label}
                 </div>
-                <div className="flex-1 [font-family:'Satoshi-Bold',Helvetica] font-bold text-[#0a0b0d] text-[13px] tracking-[0] leading-normal">
+                <div className="flex-1 [font-family:'Inter',sans-serif] font-normal text-[#0a0b0d] text-[13px] tracking-[0] leading-normal">
                   {row.value}
                 </div>
               </div>

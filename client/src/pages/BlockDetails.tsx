@@ -22,14 +22,7 @@ export const BlockDetails = (): JSX.Element => {
         <div className="w-full flex items-center justify-between px-[49px] py-[27px]">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <img
-              className="w-[53px] h-[53px] object-cover"
-              alt="Blackmode"
-              src="/figmaAssets/blackmode-1.png"
-            />
-            <span className="[font-family:'Satoshi-Bold',Helvetica] font-bold text-white text-[32px] tracking-[0] leading-[normal]">
-              AtherScan
-            </span>
+            <img className="h-5 w-auto object-contain cursor-pointer" alt="AtherScan Logo" src="/AtherScan.png" />
           </div>
 
           {/* Navigation links */}
